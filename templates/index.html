@@ -1,1 +1,21 @@
+<!DOCTYPE html>
+<html>
 
+
+  <body>
+    <div class="container">
+        <div class="row">
+            <form action="/" method="POST">
+            <div class="col-lg-8  offset-lg-2">
+                <h3 class="mt-5">Live Streaming</h3>
+                <center><img src="{{ url_for('video_feed') }}" width="30%" height="30%"></center>
+                <br>
+                <button type="submit" width="10%">Capture</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    </body>
+
+
+</html>
