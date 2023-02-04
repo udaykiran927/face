@@ -3,7 +3,6 @@ import cv2
 url='http://192.168.0.4:8080/video'
 app=Flask(__name__)
 #camera = VideoStream(src=0).start()
-time.sleep(2.0)
 @app.route('/')
 def index():
     return render_template('index.html')
