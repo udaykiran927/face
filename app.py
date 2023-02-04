@@ -1,18 +1,24 @@
 
-from flask import Flask, render_template, Response
+from imutils.video import VideoStream
+from flask import Response
+from flask import Flask
+from flask import render_template
+import threading
+import argparse
+import datetime
+import imutils
+import time
 import cv2
-import numpy as np
-import os
-import numpy as np
-from datetime import datetime
+outputFrame = None
 app=Flask(__name__)
-camera=cv2.VideoCapture(0)
+#camera = VideoStream(src=0).start()
+time.sleep(2.0)
 @app.route('/')
 def index():
     return render_template('index.html')
     
 def gen_frames():
-    camera=cv2.VideoCapture(0)
+    camera = VideoStream(src=0).start()
     while True:
         success, frame = camera.read()
         if not success:
