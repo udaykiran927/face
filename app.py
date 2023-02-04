@@ -1,15 +1,6 @@
-
-from imutils.video import VideoStream
-from flask import Response
-from flask import Flask
-from flask import render_template
-import threading
-import argparse
-import datetime
-import imutils
-import time
+from flask import Flask,Response,render_template
 import cv2
-outputFrame = None
+url='http://192.168.0.4:8080/video'
 app=Flask(__name__)
 #camera = VideoStream(src=0).start()
 time.sleep(2.0)
@@ -18,7 +9,7 @@ def index():
     return render_template('index.html')
     
 def gen_frames():
-    camera = VideoStream(src=0).start()
+    camera = cv2.VideoCapture(url)
     while True:
         success, frame = camera.read()
         if not success:
