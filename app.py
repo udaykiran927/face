@@ -1,6 +1,5 @@
 from flask import Flask,Response,render_template
 import cv2
-url='http://192.168.0.4:8080/video'
 app=Flask(__name__)
 #camera = VideoStream(src=0).start()
 @app.route('/')
@@ -8,7 +7,7 @@ def index():
     return render_template('index.html')
     
 def gen_frames():
-    camera = cv2.VideoCapture(url)
+    camera = cv2.VideoCapture(-1)
     while True:
         success, frame = camera.read()
         if not success:
