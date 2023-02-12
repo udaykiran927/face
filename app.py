@@ -2,12 +2,13 @@ from flask import Flask,Response,render_template
 import cv2
 app=Flask(__name__)
 #camera = VideoStream(src=0).start()
+camera = cv2.VideoCapture('http://192.168.0.3:8080')
 @app.route('/')
 def index():
     return render_template('index.html')
     
 def gen_frames():
-    camera = cv2.VideoCapture(1)
+    camera = cv2.VideoCapture('http://192.168.0.3:8080')
     while True:
         success, frame = camera.read()
         if not success:
